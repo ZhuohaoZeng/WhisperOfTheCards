@@ -23,7 +23,7 @@ public class DiscardManager : MonoBehaviour
 
     public void AddToDiscard(AbstractCard card)
     {
-        if (card == null)
+        if (card != null)
         {
             discardCards.Add(card);
             UpdateDiscardCount();

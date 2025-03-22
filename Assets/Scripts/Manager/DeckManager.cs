@@ -7,11 +7,12 @@ public class DeckManager : MonoBehaviour
 {
     public List<AbstractCard> allCards = new List<AbstractCard>();
     public int maxHandSize = 12;
-    public int startingHandSize = 4;
+    public int startingHandSize = 1;
     public int currentHandSize;
     private HandManager handManager;
     private DrawPileManager drawPileManager;
     private bool startBattleRun = true;
+    public int testingNumberOfCardInPile;
 
     void Awake()
     {
@@ -26,8 +27,13 @@ public class DeckManager : MonoBehaviour
     }
     void Start()
     {
-        AbstractCard[] cards = Resources.LoadAll<AbstractCard>("Cards");
-        allCards.AddRange(cards);
+        AbstractCard[] cards = Resources.LoadAll<AbstractCard>("Cards");//Since I only have 1 card designed at this very early stage
+        //I will add this card multiple times to test it 
+        for (int i = 0; i < testingNumberOfCardInPile; i++)
+        {
+            allCards.AddRange(cards);
+        }
+        
     }
 
     void Update()

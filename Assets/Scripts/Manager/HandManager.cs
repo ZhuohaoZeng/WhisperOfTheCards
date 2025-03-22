@@ -13,15 +13,6 @@ public class HandManager : MonoBehaviour
     public int maxHandSize;
     public List<GameObject> cardsInHand = new List<GameObject>(); // hold a list of card object in our hand
 
-    void Start()
-    {
-
-    }
-    private void Update()
-    {
-        //UpdateHandVisuals();
-    }
-
     public void BattleSetup(int setHandSize)
     {
         maxHandSize = setHandSize;

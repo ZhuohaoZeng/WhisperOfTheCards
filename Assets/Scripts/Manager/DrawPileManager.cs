@@ -52,7 +52,8 @@ public class DrawPileManager : MonoBehaviour
         if (drawPile.Count == 0) {
             RefillPileFromDiscardPile();
         }
-        if (currentHandSize < maxHandSize)
+
+        if (currentHandSize < maxHandSize && drawPile.Count != 0) //We can only draw when we have cards in drawPile
         {
             AbstractCard card = drawPile[currentIndex];
             handManager.AddCardToHand(card);
@@ -60,6 +61,11 @@ public class DrawPileManager : MonoBehaviour
             UpdateDrawPileCount();
             if (drawPile.Count > 0) currentIndex %= drawPile.Count; //Ensuring currentIndex will never longer than the length of all cards
         }
+        if (drawPile.Count == 0)
+        {
+            Debug.Log("We ran out all the cards in drawPiles");
+        }
+
 
     }
 
